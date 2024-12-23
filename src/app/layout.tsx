@@ -50,8 +50,8 @@ export const metadata: Metadata = {
     siteName: 'Shashwat Dubey',
     images: [{
       url: '/og-image.png',
-      width: 1938,
-      height: 979,
+      width: 2561,
+      height: 1313,
       alt: 'Shashwat Dubey — Frontend Developer'
     }],
   },
