@@ -1,36 +1,64 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Brutalist Portfolio
 
-## Getting Started
+A minimalist, brutalist-style portfolio website built with Next.js 14, React, and Tailwind CSS.
 
-First, run the development server:
+## Tech Stack
+
+- Next.js 14 (App Router)
+- React
+- TypeScript
+- Tailwind CSS
+- Hedvig Letters Serif & Inter fonts
+
+## Features
+
+- Responsive brutalist design
+- Dynamic time display (Indian timezone)
+- CSS animations and effects
+- SEO optimized
+- Mobile-first approach
+- Customizable content
+
+## Running Locally
 
 ```bash
+git clone https://github.com/yourusername/brutalist-retro-portfolio.git
+cd brutalist-retro-portfolio
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Visit `http://localhost:3000`
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+src/
+├── app/
+│   ├── layout.tsx      # Root layout with metadata
+│   ├── page.tsx        # Homepage component
+│   └── globals.css     # Global styles
+├── components/
+│   └── BrutalAlert.tsx # Alert component
+└── public/
+    ├── arrow.svg       # Navigation arrow
+    └── location.svg    # Location icon
+```
 
-## Learn More
+## Customization
 
-To learn more about Next.js, take a look at the following resources:
+1. Update metadata in `layout.tsx`
+2. Modify colors in `globals.css`
+3. Edit content in `page.tsx`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Deployment
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Deploy using Vercel for the best experience:
 
-## Deploy on Vercel
+```bash
+npm run build
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## License
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+MIT
