@@ -1,3 +1,4 @@
+// Usage: <BrutalAlert message="Your message" onClose={() => {}} />
 import { useEffect } from 'react';
 
 interface BrutalAlertProps {

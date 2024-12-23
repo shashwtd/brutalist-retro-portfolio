@@ -20,7 +20,7 @@ export default function Home() {
           onClose={() => setShowAlert(false)} 
         />
       )}
-      {/* Add SVG filters */}
+      {/* SVG filter for distortion effects */}
       <svg className="hidden">
         <filter id="turbulence">
           <feTurbulence baseFrequency="0.02 0.1" type="fractalNoise">
@@ -34,9 +34,9 @@ export default function Home() {
       </svg>
       
       <main className="flex justify-center items-center min-h-[100dvh] h-[100dvh] sm:min-h-screen sm:h-auto scanline p-4">
-        {/* Left Container */}
+        {/* Main card container */}
         <div className="w-full h-[calc(100dvh-2rem)] sm:h-full sm:w-[500px] sm:min-h-[550px] sm:max-h-[600px] border border-foreground flex flex-col justify-between px-3 py-4 sm:px-5 sm:py-5 sm:pb-6">
-          {/* Top Section */}
+          {/* Header: Time and Location */}
           <div className="w-full flex flex-col sm:flex-row sm:justify-between gap-3 sm:gap-0">
             <div className="font-inter text-sm sm:text-base leading-normal tracking-[-0.96px]">
               {new Date().toLocaleString('en-IN', {
@@ -58,7 +58,7 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Middle Section */}
+          {/* Bio section */}
           <div className="flex flex-col gap-[18px] items-start self-stretch">
             <div className="flex justify-center items-center gap-[10px] px-[9px] py-1 border border-foreground">
               <span className="font-hedvig-letters-serif text-sm sm:text-base leading-normal tracking-[-0.12px]">
@@ -75,7 +75,7 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Bottom Section */}
+          {/* Navigation */}
           <div className="flex flex-col gap-4 sm:gap-6">
             <nav className="flex flex-wrap gap-2 sm:gap-3">
               {[

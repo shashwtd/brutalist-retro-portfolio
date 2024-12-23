@@ -13,6 +13,7 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
+// Update these values when deploying
 export const metadata: Metadata = {
   metadataBase: new URL('https://shashwatdubey.com'),
   title: {
@@ -77,7 +78,7 @@ export const metadata: Metadata = {
   },
 };
 
-// Add JSON-LD structured data
+// Schema markup for better SEO
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Person',

@@ -2,12 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Brand Colors */
 :root {
   --background: #1414B9;
   --foreground: #ffffff;
   --secondary: #FFFFFF4D;
 }
 
+/* Base Styles */
 body {
   color: var(--foreground);
   background: var(--background);
@@ -21,6 +23,7 @@ body {
   font-family: var(--font-inter);
 }
 
+/* Effects & Animations */
 @keyframes glitch {
   0% { transform: translate(0) }
   20% { transform: translate(-2px, 2px) }
@@ -38,7 +41,7 @@ body {
   filter: url('#turbulence');
 }
 
-/* Add a subtle scanline effect */
+/* Screen Effects */
 .scanline {
   background: linear-gradient(
     to bottom,
@@ -123,6 +126,7 @@ body {
   box-shadow: 4px 4px 0px var(--foreground);
 }
 
+/* Mobile Optimizations */
 @media (max-width: 640px) {
   .scanline {
     background-size: 100% 2px;
