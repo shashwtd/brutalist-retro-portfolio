@@ -1,101 +1,118 @@
+'use client'
+
 import Image from "next/image";
+import { useState } from "react";
+import BrutalAlert from "@/components/BrutalAlert";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const [showAlert, setShowAlert] = useState(false);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+  const handleNavClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setShowAlert(true);
+  };
+
+  return (
+    <>
+      {showAlert && (
+        <BrutalAlert 
+          message="[ Under Construction ] Check back soon..." 
+          onClose={() => setShowAlert(false)} 
+        />
+      )}
+      {/* Add SVG filters */}
+      <svg className="hidden">
+        <filter id="turbulence">
+          <feTurbulence baseFrequency="0.02 0.1" type="fractalNoise">
+            <animate attributeName="baseFrequency" 
+              dur="3s" values="0.02 0.15;0.05 0.15;0.02 0.15" 
+              repeatCount="indefinite"
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+          </feTurbulence>
+          <feDisplacementMap in="SourceGraphic" scale="5" />
+        </filter>
+      </svg>
+      
+      <main className="flex justify-center items-center min-h-[100dvh] h-[100dvh] sm:min-h-screen sm:h-auto scanline p-4">
+        {/* Left Container */}
+        <div className="w-full h-[calc(100dvh-2rem)] sm:h-full sm:w-[500px] sm:min-h-[550px] sm:max-h-[600px] border border-foreground flex flex-col justify-between px-3 py-4 sm:px-5 sm:py-5 sm:pb-6">
+          {/* Top Section */}
+          <div className="w-full flex flex-col sm:flex-row sm:justify-between gap-3 sm:gap-0">
+            <div className="font-inter text-sm sm:text-base leading-normal tracking-[-0.96px]">
+              {new Date().toLocaleString('en-IN', {
+                hour: 'numeric',
+                minute: '2-digit',
+                hour12: true,
+                weekday: 'long',
+                timeZone: 'Asia/Kolkata'
+              }).split(',')[1].trim() + ', ' + new Date().toLocaleString('en-IN', {
+                weekday: 'long',
+                timeZone: 'Asia/Kolkata'
+              })}
+            </div>
+            <div className="flex items-center gap-2">
+              <Image src="/location.svg" width={16} height={16} alt="Location icon" className="sm:w-[18px] sm:h-[18px]" />
+              <span className="font-inter text-sm sm:text-base leading-normal tracking-[-0.96px]">
+                Prayagraj, India
+              </span>
+            </div>
+          </div>
+
+          {/* Middle Section */}
+          <div className="flex flex-col gap-[18px] items-start self-stretch">
+            <div className="flex justify-center items-center gap-[10px] px-[9px] py-1 border border-foreground">
+              <span className="font-hedvig-letters-serif text-sm sm:text-base leading-normal tracking-[-0.12px]">
+                Available for remote work!
+              </span>
+            </div>
+            <div className="flex flex-col items-start gap-[10px] self-stretch">
+              <h1 className="font-hedvig-letters-serif text-[32px] sm:text-[48px] leading-normal tracking-[-0.96px]">
+                Shashwat Dubey
+              </h1>
+              <p className="font-inter text-sm sm:text-base leading-normal tracking-[-0.75px]">
+                Crafting digital experiences since 2020 / I design sleek web apps, extensions, & more / 4+ years honing frontend skills with a creative edge / Passionate about web3, AI, and tech that shapes tomorrow.
+              </p>
+            </div>
+          </div>
+
+          {/* Bottom Section */}
+          <div className="flex flex-col gap-4 sm:gap-6">
+            <nav className="flex flex-wrap gap-2 sm:gap-3">
+              {[
+                { name: "about", path: "/" },
+                { name: "work", path: "/" },
+                { name: "contact", path: "/" },
+                { name: "experiments", path: "/" },
+              ].map((link, i) => (
+                <a
+                  key={link.name}
+                  href={link.path}
+                  onClick={handleNavClick}
+                  className={`
+                    group font-inter text-sm sm:text-base tracking-[-0.96px] px-2 sm:px-3 py-1
+                    border border-foreground hover:bg-foreground hover:text-background
+                    transition-colors relative flex items-center gap-1 sm:gap-2
+                    glitch-hover
+                    ${i === 0 ? 'rotate-[-2deg]' : ''}
+                    ${i === 1 ? 'rotate-[1deg]' : ''}
+                    ${i === 2 ? 'rotate-[-1deg]' : ''}
+                    ${i === 3 ? 'rotate-[2deg]' : ''}
+                  `}
+                >
+                  {link.name}
+                  <Image 
+                    src="/arrow.svg" 
+                    width={16} 
+                    height={16} 
+                    alt="" 
+                    className="invert group-hover:invert-0" 
+                  />
+                </a>
+              ))}
+            </nav>
+          </div>
         </div>
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+    </>
   );
 }

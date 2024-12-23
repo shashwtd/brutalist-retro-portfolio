@@ -3,19 +3,143 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: #1414B9;
+  --foreground: #ffffff;
+  --secondary: #FFFFFF4D;
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+}
+
+.font-hedvig-letters-serif {
+  font-family: var(--font-hedvig-letters-serif);
+}
+
+.font-inter {
+  font-family: var(--font-inter);
+}
+
+@keyframes glitch {
+  0% { transform: translate(0) }
+  20% { transform: translate(-2px, 2px) }
+  40% { transform: translate(-2px, -2px) }
+  60% { transform: translate(2px, 2px) }
+  80% { transform: translate(2px, -2px) }
+  100% { transform: translate(0) }
+}
+
+.glitch-hover:hover {
+  animation: glitch 0.3s cubic-bezier(.25, .46, .45, .94) both infinite;
+}
+
+.distort {
+  filter: url('#turbulence');
+}
+
+/* Add a subtle scanline effect */
+.scanline {
+  background: linear-gradient(
+    to bottom,
+    transparent 50%,
+    rgba(255, 255, 255, 0.05) 51%
+  );
+  background-size: 100% 4px;
+  position: relative;
+}
+
+/* Typewriter effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+.typewriter {
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typing 2s steps(40, end);
+  animation-fill-mode: forwards;
+}
+
+.project-container::-webkit-scrollbar {
+  width: 1px;
+}
+
+.project-container::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+.project-container::-webkit-scrollbar-thumb {
+  background: var(--foreground);
+}
+
+@keyframes float {
+  0% { transform: translateY(0px) rotate(var(--rotation)); }
+  50% { transform: translateY(-10px) rotate(var(--rotation)); }
+  100% { transform: translateY(0px) rotate(var(--rotation)); }
+}
+
+.project-container > a {
+  --rotation: 0deg;
+  animation: float 6s ease-in-out infinite;
+  animation-delay: calc(var(--delay) * 1s);
+}
+
+.project-container > a:hover {
+  animation-play-state: paused;
+}
+
+@keyframes glitch-text {
+  0% { transform: skew(0deg); }
+  20% { transform: skew(10deg); }
+  40% { transform: skew(-10deg); }
+  60% { transform: skew(5deg); }
+  80% { transform: skew(-5deg); }
+  100% { transform: skew(0deg); }
+}
+
+.glitch-text {
+  animation: glitch-text 0.3s linear infinite;
+  display: inline-block;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%) rotate(5deg);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0) rotate(-2deg);
+    opacity: 1;
+  }
+}
+
+.slide-in {
+  animation: slideIn 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.shadow-brutal {
+  box-shadow: 4px 4px 0px var(--foreground);
+}
+
+@media (max-width: 640px) {
+  .scanline {
+    background-size: 100% 2px;
+  }
+  
+  .shadow-brutal {
+    box-shadow: 2px 2px 0px var(--foreground);
+  }
+
+  @keyframes slideIn {
+    from {
+      transform: translateY(-100%) rotate(2deg);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0) rotate(-1deg);
+      opacity: 1;
+    }
+  }
 }
