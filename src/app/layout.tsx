@@ -15,7 +15,7 @@ const inter = Inter({
 
 // Update these values when deploying
 export const metadata: Metadata = {
-  metadataBase: new URL('https://shashwatdubey.com'),
+  metadataBase: new URL('https://shashwt.me'),
   title: {
     template: '%s | Shashwat Dubey',
     default: 'Shashwat Dubey — Frontend Developer'
@@ -44,14 +44,14 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://shashwatdubey.com',
+    url: 'https://shashwt.me',
     title: 'Shashwat Dubey — Frontend Developer',
     description: 'Crafting digital experiences since 2020 / Frontend Developer specializing in React, Next.js, and Web3',
     siteName: 'Shashwat Dubey',
     images: [{
       url: '/og-image.png',
-      width: 1200,
-      height: 630,
+      width: 1938,
+      height: 979,
       alt: 'Shashwat Dubey — Frontend Developer'
     }],
   },
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     title: 'Shashwat Dubey — Frontend Developer',
     description: 'Crafting digital experiences since 2020 / Frontend Developer specializing in React, Next.js, and Web3',
     images: ['/og-image.png'],
-    creator: '@yourtwitter',
+    creator: '@shashwtd',
   },
   robots: {
     index: true,
