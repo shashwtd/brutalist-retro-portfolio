@@ -82,7 +82,7 @@ export default function Home() {
                 { name: "about", path: "/" },
                 { name: "work", path: "/" },
                 { name: "contact", path: "/" },
-                { name: "experiments", path: "/" },
+                // { name: "experiments", path: "/" },
               ].map((link, i) => (
                 <a
                   key={link.name}
