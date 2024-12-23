@@ -39,16 +39,13 @@ export default function Home() {
           {/* Header: Time and Location */}
           <div className="w-full flex flex-col sm:flex-row sm:justify-between gap-3 sm:gap-0">
             <div className="font-inter text-sm sm:text-base leading-normal tracking-[-0.96px]">
-              {new Date().toLocaleString('en-IN', {
+                {new Date().toLocaleString('en-IN', {
+                weekday: 'long',
                 hour: 'numeric',
                 minute: '2-digit',
                 hour12: true,
-                weekday: 'long',
                 timeZone: 'Asia/Kolkata'
-              }).split(',')[1].trim() + ', ' + new Date().toLocaleString('en-IN', {
-                weekday: 'long',
-                timeZone: 'Asia/Kolkata'
-              })}
+                })}
             </div>
             <div className="flex items-center gap-2">
               <Image src="/location.svg" width={16} height={16} alt="Location icon" className="sm:w-[18px] sm:h-[18px]" />
