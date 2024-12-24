@@ -181,7 +181,7 @@ export default function Home() {
                                     { name: "about", path: "/about" },
                                     { name: "work", path: "/work" },
                                     { name: "contact", path: "/contact" },
-                                ].map((link, i) => (
+                                ].map((link) => (
                                     <a
                                         key={link.name}
                                         href={link.path}
@@ -197,11 +197,7 @@ export default function Home() {
                                             group font-inter text-sm sm:text-base tracking-[-0.96px] px-2 sm:px-3 py-1
                                             border border-foreground hover:bg-foreground hover:text-background
                                             transition-colors relative flex items-center gap-1 sm:gap-2
-                                            glitch-hover ${activeNav === link.path ? 'bg-foreground text-background' : ''}
-                                            ${i === 0 ? 'rotate-[-2deg]' : ''}
-                                            ${i === 1 ? 'rotate-[1deg]' : ''}
-                                            ${i === 2 ? 'rotate-[-1deg]' : ''}
-                                        `}
+                                            glitch-hover ${activeNav === link.path ? 'bg-foreground text-background' : ''}`}
                                     >
                                         {link.name}
                                         {activeNav === link.path ? (
