@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     description: 'Crafting digital experiences since 2020 / Frontend Developer specializing in React, Next.js, and Web3',
     siteName: 'Shashwat Dubey',
     images: [{
-      url: '/og-image.png',
+      url: 'https://shashwt.me/og-image.png',
       width: 2561,
       height: 1313,
       alt: 'Shashwat Dubey — Frontend Developer'
@@ -59,8 +59,9 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Shashwat Dubey — Frontend Developer',
     description: 'Crafting digital experiences since 2020 / Frontend Developer specializing in React, Next.js, and Web3',
-    images: ['/og-image.png'],
+    images: ['https://shashwt.me/og-image.png'],
     creator: '@shashwtd',
+    site: '@shashwtd',
   },
   robots: {
     index: true,
